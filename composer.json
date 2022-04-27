@@ -1,0 +1,26 @@
+{
+    "name": "adityaricki/laravel-permission",
+    "description": "This package allows you to manage permissions in your routes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "adityaricki",
+            "email": "adityaric72@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Adityaricki\\LaravelPermission\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Adityaricki\\LaravelPermission\\LaravelPermissionServiceProvider"
+            ]
+        }
+    }
+}
