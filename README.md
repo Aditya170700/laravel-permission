@@ -28,14 +28,11 @@ Copied File [/vendor/adityaricki/laravel-permission/src/config/laravel-permissio
 
 ### Model and Migration
 
-This package comes with routes & route_user migration using uuid
-if you are no problem about that
-use trait `Adityaricki\LaravelPermission\Traits\Uuid` in user model
-change user migration
-`$table->id();` to `$table->uuid('id')->primary();`
-else
-change routes & route_user migration
-`$table->uuid('id')->primary();` to `$table->id();`
+If you want to use uuid as primary key, you can set in
+
+```php
+config('laravel-permission.use-uuid')
+```
 
 Run migration:
 

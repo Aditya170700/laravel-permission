@@ -14,8 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('route_user', function (Blueprint $table) {
-            $table->uuid('route_id');
-            $table->uuid('user_id');
+            if (config('laravel-permission.use-uuid')) {
+                $table->uuid('route_id');
+                $table->uuid('user_id');
+            } else {
+                $table->unsignedBigInteger('route_id');
+                $table->unsignedBigInteger('user_id');
+            }
 
             $table->foreign('route_id')->references('id')->on('routes')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

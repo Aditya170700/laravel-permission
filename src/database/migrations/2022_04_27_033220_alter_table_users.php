@@ -13,17 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('routes', function (Blueprint $table) {
+        // Drop id if using uuid
+        Schema::table('users', function (Blueprint $table) {
+            if (config('laravel-permission.use-uuid')) {
+                $table->dropColumn(['id']);
+            }
+        });
+
+        // Create column id if using uuid
+        Schema::table('users', function (Blueprint $table) {
             if (config('laravel-permission.use-uuid')) {
                 $table->uuid('id')->primary();
-            } else {
-                $table->id();
             }
-            $table->string('name')->nullable();
-            $table->string('uri');
-            $table->string('method');
-            $table->string('controller')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -34,6 +35,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routes');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
