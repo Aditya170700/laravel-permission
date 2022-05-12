@@ -2,23 +2,31 @@
 
 namespace Adityaricki\LaravelPermission\Models;
 
-use Adityaricki\LaravelPermission\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ *  If you want to use uuid, you can uncomment this code
+ */
+
+// use Adityaricki\LaravelPermission\Traits\Uuid;
+
 class Route extends Model
 {
-    use HasFactory, Uuid;
+    use HasFactory;
 
-    protected $keyType = 'string';
+    /**
+     *  If you want to use uuid, you can uncomment this code
+     */
 
-    public $incrementing = false;
+    // use Uuid;
+    // protected $keyType = 'string';
+    // public $incrementing = false;
+    // protected $casts = [
+    //     'id' => 'string',
+    // ];
 
     protected $guarded = [];
-
-    protected $casts = [
-        'id' => 'string',
-    ];
 
     public function users()
     {

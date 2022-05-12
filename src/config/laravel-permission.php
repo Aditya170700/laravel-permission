@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'use-uuid' => env('USE_UUID', true),
+    'use-uuid' => env('USE_UUID', false),
     'models' => [
         'route' => Adityaricki\LaravelPermission\Models\Route::class,
     ],
