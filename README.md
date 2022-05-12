@@ -33,6 +33,16 @@ Copied File `[/vendor/adityaricki/laravel-permission/src/config/laravel-permissi
 
 ### Model and Migration
 
+Use traits `HasRoutes.php` in your model:
+
+```php
+use Adityaricki\LaravelPermission\Traits\HasRoutes;
+```
+
+```php
+use HasRoutes;
+```
+
 If you want to use uuid as primary key, you can set in config `laravel-permission.php` file:
 
 ```php
@@ -64,13 +74,15 @@ php artisan migrate
 
 ### Middleware
 
-This package comes with middleware `Adityaricki\LaravelPermission\Middleware\PermissionMiddleware`
+This package comes with middleware `Adityaricki\LaravelPermission\Middleware\PermissionMiddleware` for `routes/web.php` and `Adityaricki\LaravelPermission\Middleware\PermissionMiddlewareApi` for `routes/api.php`
+
 you can add them in your `app\Http\Kernel.php` file
 
 ```php
 protected $routeMiddleware = [
     // ...
     'laravel-permission' => \Adityaricki\LaravelPermission\Middleware\PermissionMiddleware::class,
+    'laravel-permission-api' => \Adityaricki\LaravelPermission\Middleware\PermissionMiddlewareApi::class,
 ];
 ```
 
@@ -78,6 +90,16 @@ Then you can protect your routes using middleware rules:
 
 ```php
 Route::group(['middleware' => 'laravel-permission'], function () {
+    // Route::get(...);
+    // Route::post(...);
+    // Route::put(...);
+    // Route::delete(...);
+    // Route::resource(...);
+});
+```
+
+```php
+Route::group(['middleware' => 'laravel-permission-api'], function () {
     // Route::get(...);
     // Route::post(...);
     // Route::put(...);
