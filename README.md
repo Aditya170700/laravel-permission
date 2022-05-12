@@ -5,6 +5,11 @@
 
 This package allows you to manage permissions in your routes
 
+### Requirements
+
+    * PHP 8.0+
+    * Middleware API only work with Passport or Sanctum
+
 ### Installation:
 
 ```bash
