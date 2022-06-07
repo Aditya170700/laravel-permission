@@ -20,8 +20,6 @@ class LaravelPermissionServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/laravel-permission.php', 'laravel-permission');
         $this->publishes([
             __DIR__ . '/config/laravel-permission.php' => config_path('laravel-permission.php'),
-            __DIR__ . '/database/migrations/' => database_path('migrations'),
-            __DIR__ . '/Models' => app_path('Models'),
         ]);
     }
 

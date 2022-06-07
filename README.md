@@ -29,7 +29,7 @@ php artisan vendor:publish --provider="Adityaricki\LaravelPermission\LaravelPerm
 ```
 
 This command will be
-Copied File `[/vendor/adityaricki/laravel-permission/src/config/laravel-permission.php]` To `[/config/laravel-permission.php]`, Copied Directory `[/vendor/adityaricki/laravel-permission/src/database/migrations]` To `[/database/migrations]` and Copied Directory `[/vendor/adityaricki/laravel-permission/src/Models]` To `[/app/Models]`
+Copied File `[/vendor/adityaricki/laravel-permission/src/config/laravel-permission.php]` To `[/config/laravel-permission.php]`
 
 ### Model and Migration
 
@@ -47,23 +47,6 @@ If you want to use uuid as primary key, you can set in config `laravel-permissio
 
 ```php
 'use-uuid' => true,
-```
-
-than you should be uncomment this code in `app/Models/Route` file:
-
-```php
-// use Adityaricki\LaravelPermission\Traits\Uuid;
-```
-
-and
-
-```php
-// use Uuid;
-// protected $keyType = 'string';
-// public $incrementing = false;
-// protected $casts = [
-//     'id' => 'string',
-// ];
 ```
 
 Run migration:

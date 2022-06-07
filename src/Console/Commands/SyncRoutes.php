@@ -2,9 +2,9 @@
 
 namespace Adityaricki\LaravelPermission\Console\Commands;
 
+use Adityaricki\LaravelPermission\Models\Route as ModelsRoute;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
-use Adityaricki\LaravelPermission\Models\Route as RouteModel;
 
 class SyncRoutes extends Command
 {
@@ -33,7 +33,7 @@ class SyncRoutes extends Command
         $total = count($routes);
 
         foreach ($routes as $route) {
-            RouteModel::firstOrCreate([
+            ModelsRoute::firstOrCreate([
                 'name' => $route->action['as'] ?? null,
                 'uri' => $route->uri,
                 'controller' => $route->action['controller'] ?? '',
